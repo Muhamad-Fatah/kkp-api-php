@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "b7cef43f-f76c-431c-8b8d-3b14ee1e0b5a",
+		"name": "mahasiswa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23096410"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "ListAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/mahasiswa/users/allUsers.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"users",
+								"allUsers.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User by user_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost/mahasiswa/users/allUsers.php?user_id=2023000035",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"users",
+								"allUsers.php"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "2023000035"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mahasiswa_id\": 12345,\r\n    \"password\": \"mahasiswa\",\r\n    \"role\": \"mahasiswa\", // [dosen,kaprodi,mahasiswa]\r\n    \"nama_depan\": \"Betran\",\r\n    \"nama_belakang\": \"Sitoli-toli\",\r\n    \"jurusan\": \"Teknik Informatika\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/users/register.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"users",
+								"register.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"2023000035\",\r\n    \"password\": \"mahasiswa\"\r\n}\r\n\r\n// {\r\n//     \"user_id\": \"100400276715864064\",\r\n//     \"password\": \"kaprodi\"\r\n// }\r\n\r\n// {\r\n//     \"user_id\": \"100399379940114433\",\r\n//     \"password\": \"dosen\"\r\n// }\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/users/login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"users",
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kegiatans",
+			"item": [
+				{
+					"name": "ListAllKegiatans",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/allKegiatans.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"allKegiatans.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kegiatan by kegiatan_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/allKegiatans.php?kegiatan_id=100400276715864067",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"allKegiatans.php"
+							],
+							"query": [
+								{
+									"key": "kegiatan_id",
+									"value": "100400276715864067"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kegiatan by mahasiswa_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/kegiatan.php?mahasiswa_id=12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"kegiatan.php"
+							],
+							"query": [
+								{
+									"key": "mahasiswa_id",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kegiatan by dosen_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/kegiatan.php?dosen_id=100399379940114438",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"kegiatan.php"
+							],
+							"query": [
+								{
+									"key": "dosen_id",
+									"value": "100399379940114438"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Kegiatan (KKN)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipe_kegiatan\": \"kkn\",\r\n    \"nama_tempat\": \"Puskesmas Desa\",\r\n    \"alamat\": \"Jl.Flores 3 desa warudingin gunung lentera\",\r\n    \"bentuk_kegiatan\": \"Sosialisasi pentingnya makanan higenis\",\r\n    // \"dosen_id\": null, //Dosen id ini dikirimnya nanti pas login pake kaprodi\r\n    // Liat di bagian insert dosen id (update)\r\n    \"mahasiswa_id\": 2147483647,\r\n    \"daftar_anggota\": [\r\n        \"Hendra Wicaksono\",\r\n        \"Samuel Aditya\",\r\n        \"Farhan Alfarizi\"\r\n    ],\r\n    \"tanggal_mulai\": null,\r\n    \"tanggal_akhir\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/create.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"create.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Kegiatan (KKP)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipe_kegiatan\": \"kkn\",\r\n    \"nama_tempat\": \"Perusahaan Jepang\",\r\n    \"alamat\": \"Jl.Akatsuki 3 gang naruto belok kanan\",\r\n    \"bentuk_kegiatan\": \"Yayasan peduli kasih\",\r\n    \"dosen_id\": 100399379940114434,\r\n    \"mahasiswa_id\": 12345,\r\n    \"daftar_anggota\": null,\r\n    \"tanggal_mulai\": null,\r\n    \"tanggal_akhir\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/create.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"create.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert dosen id (update)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dosen_id\" : 100399379940114434,\r\n    \"nama_dosen\" : \"Roby Sulistyo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/mahasiswa/kegiatan/update.php?kegiatan_id=64b1b019df6c9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"kegiatan",
+								"update.php"
+							],
+							"query": [
+								{
+									"key": "kegiatan_id",
+									"value": "64b1b019df6c9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dosens",
+			"item": [
+				{
+					"name": "ListAllDosens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/mahasiswa/dosen/allDosens.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"mahasiswa",
+								"dosen",
+								"allDosens.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
