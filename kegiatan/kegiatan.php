@@ -10,13 +10,28 @@ $sql = "";
 $message = "";
 
 if ($kegiatanId) {
-    $sql = "SELECT * FROM tbl_kegiatan WHERE kegiatan_id = '$kegiatanId'";
+    $sql = "SELECT tbl_user.*, tbl_kegiatan.*, tbl_dosen.* 
+    FROM tbl_user 
+    JOIN tbl_kegiatan ON tbl_user.mahasiswa_id = tbl_kegiatan.mahasiswa_id
+    JOIN tbl_dosen ON tbl_kegiatan.dosen_id = tbl_dosen.dosen_id
+    WHERE tbl_kegiatan.kegiatan_id = '$kegiatanId'
+    ";
     $message = "Success get kegiatan by kegiatan_id $kegiatanId";
 } else if ($mahasiswaId) {
-    $sql = "SELECT * FROM tbl_kegiatan WHERE mahasiswa_id = '$mahasiswaId'";
+    $sql = "SELECT tbl_user.*, tbl_kegiatan.*, tbl_dosen.* 
+    FROM tbl_user 
+    JOIN tbl_kegiatan ON tbl_user.mahasiswa_id = tbl_kegiatan.mahasiswa_id
+    JOIN tbl_dosen ON tbl_kegiatan.dosen_id = tbl_dosen.dosen_id
+    WHERE tbl_kegiatan.mahasiswa_id = '$mahasiswaId'
+    ";
     $message = "Success get kegiatan by mahasiswa_id $mahasiswaId";
 } else if ($dosenId) {
-    $sql = "SELECT * FROM tbl_kegiatan WHERE dosen_id = '$dosenId'";
+    $sql = "SELECT tbl_user.*, tbl_kegiatan.*, tbl_dosen.* 
+    FROM tbl_user 
+    JOIN tbl_kegiatan ON tbl_user.mahasiswa_id = tbl_kegiatan.mahasiswa_id
+    JOIN tbl_dosen ON tbl_kegiatan.dosen_id = tbl_dosen.dosen_id
+    WHERE tbl_kegiatan.dosen_id = '$dosenId'
+    ";
     $message = "Success get kegiatan by dosen_id $dosenId";
 }
 
@@ -25,12 +40,21 @@ if (mysqli_num_rows($result) > 0) {
     $response = array(
         "success" => true,
         "message" => $message,
-        "data" => $result
+        "data" => array()
     );
 
     while ($row = mysqli_fetch_assoc($result)) {
-        $response["data"] = $row;
+        $response["data"][] = $row;
     }
+
+    $json = json_encode($response);
+
+    echo $json;
+} else {
+    $response = array(
+        "success" => false,
+        "message" => "Anda belum memiliki kegiatan"
+    );
 
     $json = json_encode($response);
 
